@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "KEDgWGxbTX0FO12JSsCMDygwEbmGHHF3ABr/hJG5NfFvMXaqWeusxiNbp66G32t1dnSXB+P++obhNeTSpMxuDQ==",
+  "success": true,
+  "projectFilePath": "/home/cole/Programming/HobbyProjects/F#/RotatingSquare/RotatingSquare.fsproj",
+  "expectedPackageFiles": [
+    "/home/cole/.nuget/packages/fsharp.core/6.0.1/fsharp.core.6.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
