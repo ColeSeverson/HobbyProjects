@@ -1,0 +1,15 @@
+/home/cole/Programming/HobbyProjects/C#/RotatingSquare/bin/Debug/net6.0/RotatingSquare
+/home/cole/Programming/HobbyProjects/C#/RotatingSquare/bin/Debug/net6.0/RotatingSquare.deps.json
+/home/cole/Programming/HobbyProjects/C#/RotatingSquare/bin/Debug/net6.0/RotatingSquare.runtimeconfig.json
+/home/cole/Programming/HobbyProjects/C#/RotatingSquare/bin/Debug/net6.0/RotatingSquare.dll
+/home/cole/Programming/HobbyProjects/C#/RotatingSquare/bin/Debug/net6.0/ref/RotatingSquare.dll
+/home/cole/Programming/HobbyProjects/C#/RotatingSquare/bin/Debug/net6.0/RotatingSquare.pdb
+/home/cole/Programming/HobbyProjects/C#/RotatingSquare/obj/Debug/net6.0/RotatingSquare.csproj.AssemblyReference.cache
+/home/cole/Programming/HobbyProjects/C#/RotatingSquare/obj/Debug/net6.0/RotatingSquare.GeneratedMSBuildEditorConfig.editorconfig
+/home/cole/Programming/HobbyProjects/C#/RotatingSquare/obj/Debug/net6.0/RotatingSquare.AssemblyInfoInputs.cache
+/home/cole/Programming/HobbyProjects/C#/RotatingSquare/obj/Debug/net6.0/RotatingSquare.AssemblyInfo.cs
+/home/cole/Programming/HobbyProjects/C#/RotatingSquare/obj/Debug/net6.0/RotatingSquare.csproj.CoreCompileInputs.cache
+/home/cole/Programming/HobbyProjects/C#/RotatingSquare/obj/Debug/net6.0/RotatingSquare.dll
+/home/cole/Programming/HobbyProjects/C#/RotatingSquare/obj/Debug/net6.0/ref/RotatingSquare.dll
+/home/cole/Programming/HobbyProjects/C#/RotatingSquare/obj/Debug/net6.0/RotatingSquare.pdb
+/home/cole/Programming/HobbyProjects/C#/RotatingSquare/obj/Debug/net6.0/RotatingSquare.genruntimeconfig.cache
