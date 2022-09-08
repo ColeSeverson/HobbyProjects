@@ -13,6 +13,7 @@ let calculateY (i: float) (j: float) (k: float) (A: float) (B: float) (C: float)
 let calculateZ (i: float) (j: float) (k: float) (A: float) (B: float) (C: float) =
     k * Math.Cos(A) * Math.Cos(B) - j * Math.Sin(A) * Math.Cos(B) + i * Math.Sin(B)
 
+// Calculate if the surface is visible in the plane of the buffer, ie its coordinates match up with x/y and the z is greater than others
 let calculateForSurface (cubeX: float) (cubeY: float) (cubeZ: float) (A: float) (B: float) (C: float) (width: int) (height: int) (character: char) (zBuffer: float[]) (buffer: char[]) = 
     let x: float = calculateX cubeX cubeY cubeZ A B C
     let y: float = calculateY cubeX cubeY cubeZ A B C
@@ -39,7 +40,7 @@ let drawSquare (buffer: char[]) (width: int) =
 [<EntryPoint>]
 let main args =
     // Various config variables
-    let cubeWidth: float = 20.0
+    let cubeWidth: int = 20
     let distanceFromCam: int = 100
     let backgroundChar: char = '.'
     let incrementSpeed: float = 0.6
@@ -48,10 +49,6 @@ let main args =
     let width: int = 80
     let height: int = 24
 
-    // Buffers to hold characters, initialized to 0
-    let zBuffer: float[] = Array.zeroCreate (width * height)
-    let buffer: char[] = Array.init (width * height) (fun _ -> '.')
-
     // Variables to track current rotation
     let A: float = 0.0
     let B: float = 0.0
@@ -59,22 +56,26 @@ let main args =
 
     printf "\x1b[2J"
     while true do
+        // Buffers to hold characters, initialized to 0
+        let zBuffer: float[] = Array.zeroCreate (width * height)
+        let buffer: char[] = Array.init (width * height) (fun _ -> '.')
+
         let A = A + 0.05
         let B = B + 0.05
         let C = C + 0.01
         
-        let cubeX: float = -cubeWidth;
-        let cubeY: float = -cubeWidth;
-
-        // while cubeX < cubeWidth do
-        //     while cubeY < cubeWidth do 
-        //             //let (zBuffer, buffer) = calculateForSurface cubeX cubeY -cubeWidth A B C width height '@' zBuffer buffer
-        //             0
-        //         //let cubeY: float = cubeY + incrementSpeed
-        //         0
-        //     //let cubeX: float = cubeX + incrementSpeed
-        //     0
-
+        // Now we need to iterate and call calculate surface for each surface of the cube
+        for cubeX = -cubeWidth to cubeWidth do
+            for cubeY = -cubeWidth to cubeWidth do 
+            let (zBuffer, buffer) = calculateForSurface cubeX cubeY -cubeWidth A B C width height '@' zBuffer buffer
+            let (zBuffer, buffer) = calculateForSurface cubeWidth cubeY cubeX A B C width height '$' zBuffer buffer
+            let (zBuffer, buffer) = calculateForSurface -cubeWidth cubeY -cubeX A B C width height '~' zBuffer buffer
+            let (zBuffer, buffer) = calculateForSurface -cubeX cubeY cubeWidth A B C width height '#' zBuffer buffer
+            let (zBuffer, buffer) = calculateForSurface cubeX -cubeWidth -cubeY A B C width height ';' zBuffer buffer
+            let (zBuffer, buffer) = calculateForSurface cubeX cubeWidth cubeY A B C width height '+' zBuffer buffer
+            (zBuffer, buffer) |> ignore
+            
+        // Output the clear command, then draw the square
         printf "\x1b[H"
         drawSquare buffer width
     0
