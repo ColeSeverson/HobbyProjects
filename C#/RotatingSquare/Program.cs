@@ -22,7 +22,7 @@ void CalculateForSurface(double x, double y, double z, double A, double B, doubl
     var oneOverZ = 1/_z;
 
     var xp = (int)(width / 2.0 + offset * oneOverZ * x * 2.0);
-    var yp = (int)(height / 2.0 + 40 * oneOverZ * y);
+    var yp = (int)(height / 2.0 * oneOverZ * y);
     var idx = xp + (yp * width);
 
     if (idx >= 0 && idx < width * height && oneOverZ > zBuffer[idx]) {
@@ -69,7 +69,7 @@ while (true) {
 
     // Update the draw buffer
     buffer = Enumerable.Repeat(backgroundCharacter, width * height).ToArray();
-    zBuffer = Enumerable.Repeat(0.0, width * height).ToArray();
+    zBuffer = Enumerable.Repeat(width * height * 4.0, width * height).ToArray();
 
     for (double x = -cubeWidth; x < cubeWidth; x += incrementSpeed) {
         for (double y = -cubeWidth; y < cubeWidth; y += incrementSpeed) {
